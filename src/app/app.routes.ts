@@ -1,8 +1,16 @@
-import { HomeComponent } from './home/home.component';
-import { RouterModule } from '@angular/router';
+import { ModuleWithProviders} from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
 
-const routes1 = [
-  {path: '', component: HomeComponent}
+import { homeRoutes } from './home/home.routes';
+
+// Route Configuration
+export const routes: Routes = [
+  {
+    path: '',
+    redirectTo: '/home',
+    pathMatch: 'full'
+  },
+  ...homeRoutes
 ];
 
-export default RouterModule.forRoot(routes);
+export const routing: ModuleWithProviders = RouterModule.forRoot(routes);
