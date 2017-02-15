@@ -1,16 +1,40 @@
+import { NgModule } from '@angular/core';
 import { ModuleWithProviders} from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { homeRoutes } from './home/home.routes';
+import { PageNotFoundComponent } from './page-not-found.component';
+import { LoginComponent } from './login/login.component';
+import { HomeComponent } from './home/index';
+
+import { homeRoutes } from './home/index';
 
 // Route Configuration
-export const routes: Routes = [
+const routes: Routes = [
   {
     path: '',
     redirectTo: '/home',
     pathMatch: 'full'
   },
-  ...homeRoutes
+  {
+    path: 'login',
+    component: LoginComponent
+  },
+  ...homeRoutes,
+  {
+    path: '**',
+    component: PageNotFoundComponent
+  }
 ];
 
-export const routing: ModuleWithProviders = RouterModule.forRoot(routes);
+@NgModule({
+  imports: [
+    RouterModule.forRoot(routes)
+  ],
+  exports: [
+    RouterModule
+  ]
+})
+
+export class AppRoutingModule {}
+
+//export const routing: ModuleWithProviders = RouterModule.forRoot(routes);

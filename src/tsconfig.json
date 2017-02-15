@@ -3,14 +3,20 @@
     "baseUrl": "",
     "declaration": false,
     "emitDecoratorMetadata": true,
+    "noEmit": true,
+    "noEmitHelpers": false,
+    "strictNullChecks": false,
     "experimentalDecorators": true,
     "lib": ["es6", "dom"],
     "mapRoot": "./",
-    "module": "es6",
+    "module": "commonjs",
     "moduleResolution": "node",
     "outDir": "../dist/out-tsc",
     "sourceMap": true,
+    "removeComments": false,
+    "noImplicitAny": false,
     "target": "es5",
+    "types" : ["node"],
     "typeRoots": [
       "../node_modules/@types"
     ]
